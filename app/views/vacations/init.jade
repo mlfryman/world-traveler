@@ -1,0 +1,22 @@
+extends ../shared/template
+block content
+  .row
+    .col-xs-4
+      form(role='form', method='post', action='/vacations')
+        input#lat(type='hidden', name='lat')
+        input#lng(type='hidden', name='lng')
+        .form-group
+          label(for='name') Vacation Name
+          input.form-control#name(type='text', placeholder='Enter name')
+        .form-group
+          label(for='start') Start Date
+          input.form-control#start(type='date', placeholder='mm/dd/yyy')
+        .form-group
+          label(for='end') End Date
+          input.form-control#end(type='date', placeholder='mm/dd/yyyy')
+        button.btn.btn-primary(type='submit') Add Vacation
+    .col-xs-8
+
+block scripts
+  script(src='/js/user/new-vacation.js')
+
