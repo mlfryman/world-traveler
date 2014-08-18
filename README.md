@@ -1,7 +1,7 @@
 ## World Traveler
 ### Code Badges
 [![Build Status](https://travis-ci.org/mlfryman/world-traveler.svg)](https://travis-ci.org/mlfryman/world-traveler)
-erage Status](https://coveralls.io/repos/mlfryman/world-traveler/badge.png)](https://coveralls.io/r/mlfryman/world-traveler)
+[![Coverage Status](https://coveralls.io/repos/mlfryman/world-traveler/badge.png)](https://coveralls.io/r/mlfryman/world-traveler)
 
 ### About
 World-traveler is an app that documents your favorite vacation spots.
