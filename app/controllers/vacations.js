@@ -6,5 +6,5 @@ exports.init = function(req, res){
 
 exports.create = function(req, res){
   console.log(req.body);
-  res.redirect('/vacations');
+  //res.redirect('/vacations');
 };

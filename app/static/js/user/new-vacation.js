@@ -29,7 +29,7 @@
       $('#lng').val(lng);
 
       $('form').submit();
-
+      console.log(name, lat, lng);
 
     });
   }

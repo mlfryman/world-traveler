@@ -19,7 +19,7 @@ module.exports = function(app, express){
   app.get('/faq', home.faq);
   app.get('/contact', home.contact);
   app.get('/vacations/new', vacations.init);
-  app.post('/vacations', vacations.create);
+ // app.post('/vacations', vacations.create);
 
   console.log('Routes Loaded');
 };
