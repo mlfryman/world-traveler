@@ -1,10 +1,10 @@
-## name of project
+## World Traveler
 ### Code Badges
-build status icon
-coverage status icon
+[![Build Status](https://travis-ci.org/mlfryman/world-traveler.svg)](https://travis-ci.org/mlfryman/world-traveler)
+erage Status](https://coveralls.io/repos/mlfryman/world-traveler/badge.png)](https://coveralls.io/r/mlfryman/world-traveler)
 
 ### About
-write a description about your project
+World-traveler is an app that documents your favorite vacation spots.
 
 ### Models
 ```
@@ -24,9 +24,13 @@ prop-f
 ```
 
 ### Features
-- feature 1
-- feature 2
-- feature 3
+- Object Oriented
+- MVC
+- TDD
+- Mocha
+- MongoDB
+- Jade
+- Express
 
 ### Running Tests
 ```bash
@@ -35,7 +39,7 @@ $ npm test
 ```
 
 ### Contributors
-- [Chyld Medford](https://github.com/chyld)
+- [Melanie Fryman](https://github.com/mlfryman)
 
 ### License
 [MIT](LICENSE)
