@@ -8,19 +8,22 @@ World-traveler is an app that documents your favorite vacation spots.
 
 ### Models
 ```
-Model 1
-prop-a
-prop-b
-.classMethod-c
-#instanceMethod-d
-```
-
-```
-Model 2
-prop-e
-prop-f
-.classMethod-g
-#instanceMethod-h
+Vacation
+_id
+name
+start
+end
+lat
+lng
+photos
+-----------
+.create
+.all
+.findById
+.deleteById
+-----------
+#save
+#addPhoto
 ```
 
 ### Features
@@ -31,6 +34,8 @@ prop-f
 - MongoDB
 - Jade
 - Express
+- Less
+- Bootstrap
 
 ### Running Tests
 ```bash
