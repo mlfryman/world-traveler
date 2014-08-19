@@ -19,14 +19,14 @@ block content
           th Photos
         tbody
           each vacation in vacations
-            tr
+            tr(data-name=vacation.name, data-lat=vacation.coordinates.lat, data-lng=vacation.coordinates.lng)
               td= vacation.name
               td: button.btn.btn-default.btn-med(type='button')
                     span.glyphicon.glyphicon-star-empty
               td= moment(vacation.start).format('ll')
               td= moment(vacation.end).format('ll')
-              td #{vacation.coordinates.lat.toFixed(2)}
-              td #{vacation.coordinates.lng.toFixed(2)}
+              td #{vacation.coordinates.lat.toFixed(8)}
+              td #{vacation.coordinates.lng.toFixed(8)}
               td: a.nav-nav-pills.nav-stacked(href='#')
                     span.badge.pull-right 0
                     | Album

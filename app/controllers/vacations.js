@@ -4,7 +4,7 @@ var Vacation = require('../models/vacation'),
     moment = require('moment');
 
 exports.init = function(req, res){
-  res.render('vacations/new');
+  res.render('vacations/init');
 };
 
 exports.create = function(req, res){
