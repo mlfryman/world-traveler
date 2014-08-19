@@ -8,7 +8,7 @@ var expect    = require('chai').expect,
     Mongo = require('mongodb'),
     dbConnect = require('../../app/lib/mongodb'),
     cp        = require('child_process'),
-    db        = 'wt-test';
+    db        = 'wt';
 
 describe('Vacation', function(){
   before(function(done){
@@ -56,7 +56,7 @@ describe('Vacation', function(){
 
   describe('.findById', function(){
     it('should find a person by its id', function(done){
-      Vacation.findById(Mongo.ObjectID('100000000000000000000003'), function(vacation){
+      Vacation.findById(Mongo.ObjectID('100000000000000000000003'), function(err, vacation){
         expect(vacation.name).to.equal('Amsterdam, Netherlands');
         expect(vacation).to.be.instanceof(Vacation);
         done();
