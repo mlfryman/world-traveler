@@ -1,0 +1,34 @@
+extends ../shared/template
+block content
+  .row
+    .col-xs-6
+      #map
+    .col-xs-6
+      .row
+        .col-xs-12
+          #vacation(data-name=vacation.name, data-lat=vacation.coordinates.lat, data-lng=vacation.coordinates.lng)
+            .page-header: h1= vacation.name
+            table.table
+              thead
+                th Start
+                th End
+                th Latitude
+                th Longitude
+                th Photos
+              tbody
+                tr
+                  td= moment(vacation.start).format('ll')
+                  td= moment(vacation.end).format('ll')
+                  td #{vacation.coordinates.lat.toFixed(8)}
+                  td #{vacation.coordinates.lng.toFixed(8)}
+                  td #{vacation.photos.length}
+      .row
+        .col-xs-12
+          form#photo(role='form', method='post', action='/vacations/#{vacation._id}')
+            .form-group
+              label(for='photo') Photo URL
+              input.form-control#photo(type='text', placeholder='http://photo.url.jpg')
+            button.btn.btn-success(type='submit') Add Photo
+
+block scripts
+  script(src='/js/user/vacations-id.js')

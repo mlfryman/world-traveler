@@ -32,20 +32,6 @@ Vacation.findById = function(id, cb){
   });
 };
 
-Vacation.prototype.save = function(cb){
-  Vacation.collection.save(this, cb);
-};
-
-Vacation.deleteById = function(id, cb){
-  var _id = Mongo.ObjectID(id);
-  Vacation.collection.findAndRemove({_id:_id}, cb);
-};
-
-Vacation.prototype.addPhoto = function(photo, cb){
-  this.photos.push(photo);
-  Vacation.collection.update({_id:this._id}, {$push:{photos:photo}}, cb);
-};
-
 module.exports = Vacation;
 
 // PRIVATE FUNCTIONS //

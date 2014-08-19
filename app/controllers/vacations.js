@@ -1,6 +1,7 @@
 'use strict';
 
 var Vacation = require('../models/vacation'),
+    _ = require('lodash'),
     moment = require('moment');
 
 exports.init = function(req, res){
@@ -21,7 +22,7 @@ exports.index = function(req, res){
 };
 
 exports.show = function(req, res){
-  Vacation.findById(req.params.id, function(err, vacation){
-    res.render('vacations/show', {vacation:vacation, moment:moment});
+  Vacation.findById(req.params.id, function(vacation){
+    res.render('vacations/show', {vacation:vacation, moment:moment, _:_});
   });
 };

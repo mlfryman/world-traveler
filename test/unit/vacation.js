@@ -63,47 +63,6 @@ describe('Vacation', function(){
       });
     });
   });
-
-  describe('.deleteById', function(){
-    it('should delete vacation by its id', function(done){
-      Vacation.deleteById(Mongo.ObjectID('100000000000000000000001'), function(vacation){
-        Vacation.all(function(err, vacations){
-          expect(vacations).to.have.length(2);
-          done();
-        });
-      });
-    });
-  });
-
-  describe('#save', function(){
-    it('should update an exiting vacation in the database', function(done){
-      Vacation.findById('100000000000000000000003', function(vacation){
-        vacation.name = 'awesome!';
-        vacation.photos = [];
-        vacation.save(function(){
-          expect(vacation.name).to.equal('awesome!');
-          expect(vacation.photos).to.have.length(0);
-          done();
-        });
-      });
-    });
-  });
-
-  describe('#addPhoto', function(){
-    it('should take less than 10000ms', function(done){
-      this.timeout(10000);
-      setTimeout(done, 9000);
-    });
-    it('should add a photo to a vacation', function(done){
-      Vacation.findById('100000000000000000000003', function(vacation){
-        vacation.addPhoto('amsterdam.jpg', function(){
-          expect(vacation.photos).to.have.length(1);
-          expect(vacation.photos[0]).to.equal('amsterdam.jpg');
-          done();
-        });
-      });
-    });
-  });
   // Last Bracket
 });
 

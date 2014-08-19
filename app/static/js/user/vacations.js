@@ -24,7 +24,7 @@
         lat = $(tr).attr('data-lat'),
         lng = $(tr).attr('data-lng'),
         pos = {name:name, lat:parseFloat(lat), lng:parseFloat(lng)};
-    return pos;
+      return pos;
     });
     return positions;
   }
