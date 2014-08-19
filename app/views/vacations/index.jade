@@ -20,7 +20,7 @@ block content
         tbody
           each vacation in vacations
             tr(data-name=vacation.name, data-lat=vacation.coordinates.lat, data-lng=vacation.coordinates.lng)
-              td= vacation.name
+              td: a(href='/vacations/#{vacation._id}')= vacation.name
               td: button.btn.btn-default.btn-med(type='button')
                     span.glyphicon.glyphicon-star-empty
               td= moment(vacation.start).format('ll')
