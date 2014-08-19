@@ -25,19 +25,19 @@ describe('Vacation', function(){
 
   describe('constructor', function(){
     it('should create a new Vacation object', function(){
-      var v = new Vacation({name: 'Reykjavíc, Iceland', start:'07/01/2014', end:'08/01/2014', lat:'64.133333', lng:'-21.933333'});
+      var v = new Vacation({name: 'Reykjavíc, Iceland', start:'07/18/2013', end:'08/02/2013', coordinates:{lat:'64.133333', lng:'-21.933333'}});
       expect(v).to.be.instanceof(Vacation);
       expect(v.start).to.be.instanceof(Date);
       expect(v.end).to.be.instanceof(Date);
       expect(v.name).to.equal('Reykjavíc, Iceland');
-      expect(v.lat).to.equal(64.133333);
-      expect(v.lng).to.equal(-21.933333);
+      expect(v.coordinates.lat).to.be.closeTo(64.133333, 0.01);
+      expect(v.coordinates.lng).to.be.closeTo(-21.933333, 0.01);
     });
   });
 
   describe('.create', function(){
     it('should create a vacation', function(done){
-      var v = new Vacation({name: 'Reykjavíc, Iceland', lat:'64.133333', lng:'-21.933333'});
+      var v = new Vacation({name: 'Reykjavíc, Iceland', coordinates:{lat:'64.133333', lng:'-21.933333'}});
       Vacation.create(v, function(err, vacation){
         expect(vacation._id).to.be.instanceof(Mongo.ObjectID);
         done();
@@ -64,6 +64,17 @@ describe('Vacation', function(){
     });
   });
 
+  describe('.deleteById', function(){
+    it('should delete vacation by its id', function(done){
+      Vacation.deleteById(Mongo.ObjectID('100000000000000000000001'), function(vacation){
+        Vacation.all(function(err, vacations){
+          expect(vacations).to.have.length(2);
+          done();
+        });
+      });
+    });
+  });
+
   describe('#save', function(){
     it('should update an exiting vacation in the database', function(done){
       Vacation.findById('100000000000000000000003', function(vacation){
@@ -72,17 +83,6 @@ describe('Vacation', function(){
         vacation.save(function(){
           expect(vacation.name).to.equal('awesome!');
           expect(vacation.photos).to.have.length(0);
-          done();
-        });
-      });
-    });
-  });
-
-  describe('.deleteById', function(){
-    it('should delete vacation by its id', function(done){
-      Vacation.deleteById(Mongo.ObjectID('100000000000000000000001'), function(vacation){
-        Vacation.all(function(err, vacations){
-          expect(vacations).to.have.length(2);
           done();
         });
       });

@@ -1,0 +1,36 @@
+extends ../shared/template
+block content
+  .row
+    .col-xs-1
+    .col-xs-10
+      #map
+    .col-xs-1
+  .row
+    .col-xs-1
+    .col-xs-10
+      table.table.table-striped.table-hover
+        thead
+          th Name
+          th Favorite
+          th Start Date
+          th End Date
+          th Latitude
+          th Longitude
+          th Photos
+        tbody
+          each vacation in vacations
+            tr
+              td= vacation.name
+              td: button.btn.btn-default.btn-med(type='button')
+                    span.glyphicon.glyphicon-star-empty
+              td= moment(vacation.start).format('ll')
+              td= moment(vacation.end).format('ll')
+              td #{vacation.coordinates.lat.toFixed(2)}
+              td #{vacation.coordinates.lng.toFixed(2)}
+              td: a.nav-nav-pills.nav-stacked(href='#')
+                    span.badge.pull-right 0
+                    | Album
+    .col-xs-1
+
+block scripts
+  script(src='/js/user/vacations.js')

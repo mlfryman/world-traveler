@@ -18,8 +18,10 @@ module.exports = function(app, express){
   app.get('/about', home.about);
   app.get('/faq', home.faq);
   app.get('/contact', home.contact);
+
   app.get('/vacations/new', vacations.init);
- // app.post('/vacations', vacations.create);
+  app.post('/vacations', vacations.create);
+  app.get('/vacations', vacations.index);
 
   console.log('Routes Loaded');
 };

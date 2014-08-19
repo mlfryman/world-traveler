@@ -7,8 +7,7 @@ function Vacation(o){
   this.name = o.name;
   this.start = new Date(o.start);
   this.end = new Date(o.end);
-  this.lat = o.lat * 1;
-  this.lng = o.lng * 1;
+  this.coordinates = {lat:parseFloat(o.coordinates.lat), lng:parseFloat(o.coordinates.lng)};
   this.photos = [];
 }
 
@@ -43,7 +42,6 @@ Vacation.deleteById = function(id, cb){
 };
 
 Vacation.prototype.addPhoto = function(photo, cb){
-
   this.photos.push(photo);
   Vacation.collection.update({_id:this._id}, {$push:{photos:photo}}, cb);
 };
