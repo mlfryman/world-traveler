@@ -1,15 +1,16 @@
-.nav.navbar.navbar-default(role='navigation')
-  .navbar-header
-    button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
-      span.sr-only Toggle navigation
-      span.icon-bar
-      span.icon-bar
-      span.icon-bar
-    a.navbar-brand(href='/') World Traveler
-  #bs-example-navbar-collapse-1.collapse.navbar-collapse
-    ul.nav.navbar-nav.navbar-right
-      li: a(href='/about') About
-      li: a(href='/faq') FAQ
-      li: a(href='/contact') Contact
-      li: a(href='/vacations') Vacations
-      li: a(href='/vacations/new') Add Vacation
+.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      a.navbar-brand(href='/') World Traveler
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+    #navbar-main.navbar-collapse.collapse
+      ul.nav.navbar-nav
+        li: a(href='/about') About
+        li: a(href='/faq') FAQ
+        li: a(href='/contact') Contact
+      ul.nav.navbar-nav.navbar-right
+        li: a(href='/vacations') Vacations
+        li: a(href='/vacations/new') New Vacation
